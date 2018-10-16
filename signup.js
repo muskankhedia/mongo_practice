@@ -24,8 +24,9 @@ function resSend(res){
     output.err='none';
     output.result=[];
 }
-
-function signUps(req, res) {
+console.log("2");
+function signUps(req,res) {
+    alert("Hello")
     let email = req.body.email,
         username = req.body.username,
         password = req.body.password,
@@ -58,4 +59,6 @@ function signUps(req, res) {
     // console.debug(email+username+password+mobile+port)
 }
 
-// module.export = signUps;
+module.export = {
+    details:signUps,
+}

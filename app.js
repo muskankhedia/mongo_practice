@@ -32,32 +32,34 @@ app.post('/details',function(req,res){
 });
 
 app.post('/',function(req,res){
-    let email = req.body.email,
-        username = req.body.username,
-        password = req.body.password,
-        mobile = req.body.mobile
+    // let email = req.body.email,
+    //     username = req.body.username,
+    //     password = req.body.password,
+    //     mobile = req.body.mobile
     
-    mongo.connect(url, (e, dbo) => {
-        if(e) console.error(e);
-        console.warn('[SUCCESS] connected to the database');
-        let db = dbo.db('myproject');
-        let obj = {
-            'email':email,
-            'username':username,
-            'password':password,
-            'mobile':mobile
-        }
-        db.collection('details').insertOne(obj, (e,res1) =>{
-            if(e) console.error(e);
-            else
-                console.warn('[SUCCESS] inserted into the database with username='+username);
+    // mongo.connect(url, (e, dbo) => {
+    //     if(e) console.error(e);
+    //     console.warn('[SUCCESS] connected to the database');
+    //     let db = dbo.db('myproject');
+    //     let obj = {
+    //         'email':email,
+    //         'username':username,
+    //         'password':password,
+    //         'mobile':mobile
+    //     }
+    //     db.collection('details').insertOne(obj, (e,res1) =>{
+    //         if(e) console.error(e);
+    //         else
+    //             console.warn('[SUCCESS] inserted into the database with username='+username);
 
-            dbo.close();
+    //         dbo.close();
             
-        })
+    //     })
         
-    } )
-    res.sendFile(__dirname + '/details.html')
+    // } )
+    // res.sendFile(__dirname + '/details.html')
+    signup.details(req,res);
+    res.send("Hello");
     
  });
 
